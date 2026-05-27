@@ -19,12 +19,13 @@ import { RegistrationModal } from "@/components/ui/RegistrationModal";
 import { useState } from "react";
 
 export function EventsClient({ events }: { events: SanityEvent[] }) {
-  const now = new Date();
-  const [selectedEvent, setSelectedEvent] = useState<SanityEvent | null>(null);
+  // Set 'today' to the start of the day (midnight) so events happening today stay "upcoming" all day
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
   
   // Filter events into upcoming and past
-  const upcomingEvents = events.filter((e) => new Date(e.date) >= now);
-  const pastEvents = events.filter((e) => new Date(e.date) < now);
+  const upcomingEvents = events.filter((e) => new Date(e.date) >= today);
+  const pastEvents = events.filter((e) => new Date(e.date) < today);
 
   const handleRegisterClick = (event: SanityEvent, e: React.MouseEvent) => {
     if (event.registrationLink) {
