@@ -8,7 +8,8 @@ export const programs = [
       "Settlement guidance",
       "Community navigation",
       "Translation support",
-      "Information sessions"
+      "Information sessions",
+      "Teaching English with English language and proficiency"
     ],
     image: "/images/classroom-1.jpg"
   },
