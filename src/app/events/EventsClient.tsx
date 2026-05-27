@@ -18,11 +18,12 @@ interface SanityEvent {
 import { RegistrationModal } from "@/components/ui/RegistrationModal";
 import { useState } from "react";
 
-export function EventsClient({ events }: { events: SanityEvent[] }) {
   // Set 'today' to the start of the day (midnight) so events happening today stay "upcoming" all day
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   
+  const [selectedEvent, setSelectedEvent] = useState<SanityEvent | null>(null);
+
   // Filter events into upcoming and past
   const upcomingEvents = events.filter((e) => new Date(e.date) >= today);
   const pastEvents = events.filter((e) => new Date(e.date) < today);
