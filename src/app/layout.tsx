@@ -10,7 +10,8 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
   title: "OCHFA | One Community Home & Family Association",
-  description: "Supporting Newcomers. Building Stronger Communities.",
+  description: "OCHFA provides newcomer support, English literacy programs, employment assistance, and community integration services for immigrant and refugee families in Calgary and Alberta.",
+  keywords: ["newcomer support Calgary", "English literacy Calgary", "immigrant job support Alberta", "refugee families Calgary", "OCHFA", "community integration Alberta"],
 };
 
 export default function RootLayout({

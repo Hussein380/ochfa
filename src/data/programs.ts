@@ -1,66 +1,89 @@
 export const programs = [
   {
     id: "newcomer-support",
-    title: "Newcomer Support Services",
-    description: "Helping newcomers settle successfully in Canada.",
+    title: "English Literacy & Proficiency Program",
+    subtitle: "Building Confidence Through Language Learning",
+    description: "Our English Literacy & Proficiency Program helps newcomers improve communication skills for daily life, employment, education, and community participation.",
     services: [
-      "Orientation and referrals",
-      "Settlement guidance",
-      "Community navigation",
-      "Translation support",
-      "Information sessions",
+      "Beginner and intermediate English classes",
+      "Conversation circles",
+      "Reading and writing support",
+      "Digital literacy support",
+      "Community integration activities",
       "Teaching English with English language and proficiency"
+    ],
+    whoCanJoin: [
+      "Newcomers and immigrants",
+      "Refugees",
+      "Adults with limited English proficiency"
+    ],
+    benefits: [
+      "Improve speaking and communication skills",
+      "Build confidence",
+      "Prepare for employment opportunities",
+      "Connect with community resources"
     ],
     image: "/images/classroom-1.jpg"
   },
   {
     id: "employment-support",
-    title: "Employment Support",
-    description: "Helping individuals build career opportunities.",
+    title: "Employment Readiness Program",
+    subtitle: "Supporting Newcomers Toward Meaningful Employment",
+    description: "OCHFA helps newcomers prepare for the Canadian workforce through practical employment support services.",
     services: [
-      "Resume assistance",
+      "Resume and cover letter assistance",
       "Interview preparation",
       "Job search support",
-      "Employment workshops",
-      "Career mentoring"
+      "Workplace communication skills",
+      "Career guidance and referrals"
+    ],
+    benefits: [
+      "Improve employability skills",
+      "Understand Canadian workplace culture",
+      "Build professional confidence",
+      "Access community employment resources"
     ],
     image: "/images/program-employment.png"
   },
   {
-    id: "family-community",
-    title: "Family & Community Support",
-    description: "Programs that strengthen families and communities.",
-    services: [
-      "Parenting workshops",
-      "Family support programs",
-      "Community gatherings",
-      "Cultural celebrations",
-      "Wellness activities"
-    ],
-    image: "/images/program-family.png"
-  },
-  {
     id: "youth-education",
-    title: "Youth & Education Programs",
-    description: "Supporting youth development and education.",
+    title: "Youth Mentorship Program",
+    subtitle: "Empowering Youth for Leadership and Success",
+    description: "Our Youth Mentorship Program supports newcomer youth through leadership development, educational support, and community engagement activities.",
     services: [
-      "Academic support",
-      "Leadership programs",
-      "Mentorship opportunities",
-      "Skills development",
-      "Youth engagement activities"
+      "Homework support",
+      "Leadership workshops",
+      "Cultural integration activities",
+      "Recreation and social programs",
+      "Volunteer opportunities"
     ],
     image: "/images/classroom-1.jpg"
   },
   {
-    id: "health-wellness",
-    title: "Health & Wellness",
-    description: "Promoting healthy and balanced communities.",
+    id: "family-community",
+    title: "Women & Family Support Program",
+    subtitle: "Strengthening Families and Community Connections",
+    description: "OCHFA provides culturally responsive support services for women and families adjusting to life in Canada.",
     services: [
-      "Mental health awareness",
+      "Parenting workshops",
+      "Family wellness support",
+      "Community connection activities",
+      "Information and referrals",
+      "Mental health and social support resources"
+    ],
+    image: "/images/program-family.png"
+  },
+  {
+    id: "seniors-support",
+    title: "Seniors Support Program",
+    subtitle: "Supporting Healthy and Connected Aging",
+    description: "Our Seniors Support Program helps newcomer seniors reduce isolation and stay connected to community services and activities.",
+    services: [
+      "Social gatherings",
       "Wellness workshops",
-      "Community fitness activities",
-      "Health education sessions"
+      "Community referrals",
+      "Language support",
+      "Health information sessions"
     ],
     image: "/images/classroom-2.jpg"
   }

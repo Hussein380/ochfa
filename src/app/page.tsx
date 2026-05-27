@@ -58,6 +58,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Impact Section */}
+      <section className="py-16 bg-white border-b">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-4">Our Impact</h2>
+            <p className="text-lg text-muted-foreground">Making a Difference in Our Community</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
+            {[
+              { icon: "👥", number: "250+", text: "Newcomers supported annually" },
+              { icon: "📚", number: "40%", text: "Improvement in English literacy" },
+              { icon: "🤝", number: "15+", text: "Community partnerships" },
+              { icon: "💼", number: "40+", text: "Employment readiness workshops" },
+              { icon: "🧑‍🤝‍🧑", number: "1000+", text: "Volunteer support hours" },
+              { icon: "🏠", number: "80+", text: "Families connected to resources" },
+            ].map((stat, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 shadow-sm"
+              >
+                <div className="text-4xl mb-3">{stat.icon}</div>
+                <div className="text-3xl font-extrabold text-primary mb-2">{stat.number}</div>
+                <div className="text-sm font-medium text-slate-600">{stat.text}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Feature/Mission Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">

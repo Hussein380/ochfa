@@ -57,17 +57,53 @@ export default function ProgramsPage() {
                 className="w-full lg:w-1/2 space-y-6"
               >
                 <h2 className="text-3xl font-bold font-heading text-slate-900">{program.title}</h2>
+                {program.subtitle && (
+                  <h3 className="text-xl font-semibold text-primary">{program.subtitle}</h3>
+                )}
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {program.description}
                 </p>
-                <ul className="space-y-3 pt-2">
-                  {program.services.map((service, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckCircle2 className="h-6 w-6 text-secondary mr-3 shrink-0" />
-                      <span className="text-slate-700">{service}</span>
-                    </li>
-                  ))}
-                </ul>
+                
+                <div className="pt-2">
+                  <h4 className="font-bold text-slate-900 mb-3">Services Include:</h4>
+                  <ul className="space-y-2">
+                    {program.services.map((service, i) => (
+                      <li key={i} className="flex items-start">
+                        <CheckCircle2 className="h-5 w-5 text-secondary mr-3 shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{service}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {program.whoCanJoin && (
+                  <div className="pt-2">
+                    <h4 className="font-bold text-slate-900 mb-3">Who Can Join?</h4>
+                    <ul className="space-y-2">
+                      {program.whoCanJoin.map((item, i) => (
+                        <li key={i} className="flex items-start">
+                          <CheckCircle2 className="h-5 w-5 text-secondary mr-3 shrink-0 mt-0.5" />
+                          <span className="text-slate-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {program.benefits && (
+                  <div className="pt-2">
+                    <h4 className="font-bold text-slate-900 mb-3">Program Benefits:</h4>
+                    <ul className="space-y-2">
+                      {program.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-start">
+                          <CheckCircle2 className="h-5 w-5 text-secondary mr-3 shrink-0 mt-0.5" />
+                          <span className="text-slate-700">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 <div className="pt-6">
                   <Link 
                     href="/contact" 

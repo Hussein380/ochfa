@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { partners } from "@/data/partners";
 
 export default function PartnersPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="bg-slate-50 py-16 md:py-24 border-b">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <motion.div 
@@ -16,53 +16,59 @@ export default function PartnersPage() {
             className="max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-slate-900 mb-6">
-              Our Community <span className="text-primary">Partners</span>
+              Our <span className="text-primary">Partners</span> & Funders
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We are proud to collaborate with organizations that share our commitment to building stronger communities.
+              OCHFA values collaboration and community partnership in creating meaningful support for newcomer families. We are grateful for the support of our partners, funders, volunteers, and community organizations.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Partners Grid */}
+      {/* Partners Sections */}
       <section className="py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 items-center justify-center">
-            {partners.map((partner, index) => (
-              <motion.div 
-                key={partner.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group flex flex-col items-center justify-center p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all h-64"
-              >
-                <div className="relative w-32 h-32 mb-4">
-                  <Image 
-                    src={partner.logo} 
-                    alt={partner.name} 
-                    fill 
-                    className="object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="text-sm font-semibold text-center text-slate-700 group-hover:text-primary transition-colors">
-                  {partner.name}
-                </h3>
-              </motion.div>
-            ))}
-          </div>
+        <div className="container mx-auto px-4 md:px-6 space-y-24">
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-20 text-center"
-          >
-            <p className="text-2xl font-heading font-bold text-slate-800">
-              Together, we create meaningful opportunities and positive community impact.
+          {/* Government Partners */}
+          <div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold font-heading text-slate-900 mb-4">Government & Institutional Partners</h2>
+              <p className="text-slate-600">Working together at the municipal, provincial, and federal levels.</p>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+              {/* Note: In a real scenario, we map specific government partner logos from data/partners.ts here */}
+              {partners.slice(0, 3).map((partner) => (
+                <div key={partner.id} className="relative w-40 h-24 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                  <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Community Partners */}
+          <div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold font-heading text-slate-900 mb-4">Community Partners</h2>
+              <p className="text-slate-600">Local agencies, foundations, and organizations (e.g., Action Dignity, Calgary Foundation).</p>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+              {partners.slice(3, 6).map((partner) => (
+                <div key={partner.id} className="relative w-40 h-24 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                  <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Supporters */}
+          <div className="bg-primary/5 rounded-3xl p-12 text-center border border-primary/10">
+            <h2 className="text-3xl font-bold font-heading text-slate-900 mb-6">Community Supporters</h2>
+            <p className="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto mb-8">
+              Our work is also made possible by the generous contributions of dedicated volunteers, local business owners, individual donors, and community leaders.
             </p>
-          </motion.div>
+            <h3 className="text-xl font-bold text-primary mb-2">Together, we are building stronger, more inclusive communities across Alberta.</h3>
+          </div>
+
         </div>
       </section>
     </div>
