@@ -19,7 +19,22 @@ export const galleryType = defineType({
       options: {
         hotspot: true,
       },
-      validation: (rule) => rule.required(),
+      description: 'Upload an image. (If you upload a Video below, this image is optional).',
+    }),
+    defineField({
+      name: 'video',
+      title: 'Video File',
+      type: 'file',
+      options: {
+        accept: 'video/mp4,video/webm',
+      },
+      description: 'Optional: Upload an MP4 video instead of an image.',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      description: 'Text explaining what the image/video is about.',
     }),
     defineField({
       name: 'category',

@@ -2,14 +2,50 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { urlForImage } from "@/sanity/lib/image";
 
 interface GalleryImage {
   _id: string;
   title: string;
   category: string;
-  image: any;
+  image?: any;
+  description?: string;
+  videoUrl?: string;
+}
+
+function LazyVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    if (videoRef.current) observer.observe(videoRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={videoRef} className="relative w-full h-full bg-slate-900 flex items-center justify-center overflow-hidden">
+      {inView ? (
+        <video 
+          src={src} 
+          controls 
+          preload="metadata" 
+          className="absolute inset-0 w-full h-full object-contain bg-slate-900"
+        />
+      ) : (
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      )}
+    </div>
+  );
 }
 
 export function GalleryClient({ initialImages }: { initialImages: GalleryImage[] }) {
@@ -79,15 +115,31 @@ export function GalleryClient({ initialImages }: { initialImages: GalleryImage[]
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                     key={img._id}
-                    className="relative overflow-hidden rounded-2xl break-inside-avoid shadow-sm border border-slate-100 group"
+                    className="relative overflow-hidden rounded-2xl break-inside-avoid shadow-sm border border-slate-100 group bg-white flex flex-col"
                   >
                     <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-72">
-                      <Image 
-                        src={urlForImage(img.image)?.url() || "/images/placeholder.jpg"} 
-                        alt={img.title || "Gallery Image"} 
-                        fill 
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
+                      {img.videoUrl ? (
+                        <LazyVideo src={img.videoUrl} />
+                      ) : (
+                        <Image 
+                          src={img.image ? urlForImage(img.image)?.url() : "/images/placeholder.jpg"} 
+                          alt={img.title || "Gallery Image"} 
+                          fill 
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      )}
+                    </div>
+                    {/* Card Footer with Details */}
+                    <div className="p-5 border-t border-slate-100 flex-grow flex flex-col">
+                      <h3 className="text-lg font-bold text-slate-900 mb-1">{img.title}</h3>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-3 block">
+                        {img.category}
+                      </span>
+                      {img.description && (
+                        <p className="text-sm text-slate-600 leading-relaxed">
+                          {img.description}
+                        </p>
+                      )}
                     </div>
                   </motion.div>
                 ))}
