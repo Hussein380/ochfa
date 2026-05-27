@@ -6,7 +6,7 @@ export const siteConfig = {
     address: "1502 12 Ave SW, Calgary, AB T3C 0P9",
     phone: "(403) 971-9694",
     whatsapp: "403-680-7204",
-    email: "qumbi@ochfa.ca",
+    email: "info@ochfa.ca",
     website: "www.ochfa.ca"
   },
   socials: {

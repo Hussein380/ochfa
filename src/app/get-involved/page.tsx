@@ -60,6 +60,19 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
+      {/* Diversity Statement */}
+      <section className="py-12 bg-primary/5 border-b border-primary/10">
+        <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl">
+          <h2 className="text-2xl font-bold font-heading text-slate-900 mb-4">Diversity, Equity & Inclusion</h2>
+          <p className="text-lg text-slate-700 leading-relaxed mb-3">
+            OCHFA values diversity, equity, inclusion, compassion, and community collaboration. We celebrate cultural diversity and work to ensure all individuals and families feel welcomed, respected, and supported regardless of their background or identity.
+          </p>
+          <p className="text-lg font-semibold text-primary">
+            We stand against discrimination, racism, exclusion, and hate in all forms.
+          </p>
+        </div>
+      </section>
+
       {/* Ways to Get Involved Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">

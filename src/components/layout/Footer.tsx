@@ -51,6 +51,17 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Diversity & Inclusion Section */}
+        <div className="mt-12 border-t border-slate-200 pt-8 text-center max-w-4xl mx-auto">
+          <h3 className="font-semibold text-primary mb-3 text-lg">Diversity, Equity & Inclusion</h3>
+          <p className="text-sm text-slate-600 leading-relaxed mb-3">
+            OCHFA values diversity, equity, inclusion, compassion, and community collaboration. We celebrate cultural diversity and work to ensure all individuals and families feel welcomed, respected, and supported regardless of their background or identity.
+          </p>
+          <p className="text-sm font-medium text-slate-700">
+            We stand against discrimination, racism, exclusion, and hate in all forms.
+          </p>
+        </div>
+
         {/* Partner Logos Section */}
         <div className="mt-12 border-t border-slate-200 pt-8">
           <p className="text-center text-sm font-medium text-slate-500 mb-6">Our Proud Partners</p>

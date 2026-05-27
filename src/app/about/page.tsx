@@ -35,12 +35,28 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold font-heading text-slate-900">Our Story</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                We are committed to helping newcomers and families successfully integrate into Canadian society by offering programs, resources, mentorship, and community support services.
+              <h2 className="text-3xl font-bold font-heading text-slate-900">Welcome to OCHFA</h2>
+              <p className="text-lg text-slate-700 leading-relaxed font-semibold">
+                ONE COMMUNITY HOME & FAMILY ASSOCIATION (OCHFA)
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Our organization believes that strong communities are built through inclusion, connection, education, and empowerment. We work closely with community partners, volunteers, and organizations to create opportunities that improve lives and strengthen families.
+                OCHFA proudly welcomes all newcomers, immigrants, refugees, families, youth, seniors, and community members regardless of:
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-muted-foreground">
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Country of origin</li>
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Race or ethnicity</li>
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Religion or faith</li>
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Language</li>
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Culture or background</li>
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Gender or age</li>
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Immigration status</li>
+                <li className="flex items-center"><CheckCircle2 className="w-5 h-5 mr-2 text-secondary" /> Social or economic background</li>
+              </ul>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We believe diversity strengthens our communities and that every individual deserves respect, dignity, inclusion, opportunity, and support. At OCHFA, we are committed to creating a safe, welcoming, inclusive, and supportive environment where everyone feels valued and empowered to succeed.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed font-medium">
+                Together, we are building stronger families, stronger communities, and a brighter future for all.
               </p>
             </motion.div>
             <motion.div 
@@ -72,7 +88,7 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl font-bold font-heading mb-6">Our Mission</h2>
               <p className="text-lg opacity-90 leading-relaxed">
-                To empower newcomers and families by providing support, resources, opportunities, and programs that promote inclusion, well-being, education, employment, and community connection.
+                To empower newcomers, immigrants, refugees, families, youth, women, and seniors through inclusive programs, education, community support, and culturally responsive services that promote dignity, wellbeing, self-reliance, and community connection.
               </p>
             </motion.div>
             
@@ -85,7 +101,7 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl font-bold font-heading mb-6">Our Vision</h2>
               <p className="text-lg opacity-90 leading-relaxed">
-                A welcoming and inclusive community where every individual and family has the opportunity to belong, grow, and thrive.
+                To build an inclusive, empowered, and united community where all individuals and families—regardless of their background—have equal opportunities to succeed, belong, and thrive.
               </p>
             </motion.div>
           </div>

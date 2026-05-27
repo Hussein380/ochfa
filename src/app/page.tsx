@@ -38,7 +38,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-xl text-white md:text-2xl leading-relaxed max-w-2xl drop-shadow-md font-medium">
-              Supporting Newcomers. Building Stronger Communities. We provide resources, guidance, education, and opportunities that promote inclusion and long-term success in Canada.
+              OCHFA welcomes all newcomers, immigrants, refugees, and families regardless of country, race, religion, faith, language, culture, gender, or background. We are committed to building an inclusive, respectful, and supportive community for everyone.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link 

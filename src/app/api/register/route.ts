@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       // 1. Admin Notification Email
       {
         from: 'OCHFA Events <no-reply@ochfa.ca>',
-        to: ['qumbi@ochfa.ca'],
+        to: ['info@ochfa.ca'],
         replyTo: email,
         subject: `New Registration for Event: ${eventTitle}`,
         html: `
