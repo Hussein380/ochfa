@@ -12,7 +12,7 @@ export default function GetInvolvedPage() {
       description: "Become part of a growing community dedicated to supporting families and newcomers.",
       icon: <HeartHandshake className="h-12 w-12 text-primary" />,
       actionText: "Become a Volunteer",
-      actionHref: "/contact"
+      actionHref: "/contact?interest=Volunteer"
     },
     {
       id: "partner",
@@ -20,7 +20,7 @@ export default function GetInvolvedPage() {
       description: "We welcome collaborations with organizations, businesses, and community leaders.",
       icon: <Briefcase className="h-12 w-12 text-secondary" />,
       actionText: "Partner With Us",
-      actionHref: "/contact"
+      actionHref: "/contact?interest=Partner"
     },
     {
       id: "sponsor",
@@ -28,7 +28,7 @@ export default function GetInvolvedPage() {
       description: "Support impactful community initiatives and help create opportunities for those in need.",
       icon: <HandHeart className="h-12 w-12 text-primary" />,
       actionText: "Sponsorship Details",
-      actionHref: "/contact"
+      actionHref: "/contact?interest=Sponsor"
     },
     {
       id: "donate",
@@ -36,7 +36,7 @@ export default function GetInvolvedPage() {
       description: "Your financial support helps us continue building stronger, more resilient communities.",
       icon: <CircleDollarSign className="h-12 w-12 text-secondary" />,
       actionText: "Donate Now",
-      actionHref: "/contact" // Could link to a payment portal later
+      actionHref: "/contact?interest=Donate"
     }
   ];
 

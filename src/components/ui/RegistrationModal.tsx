@@ -19,27 +19,25 @@ export function RegistrationModal({ isOpen, onClose, eventTitle }: RegistrationM
     setStatus("submitting");
 
     const formData = new FormData(e.currentTarget);
-    // Append the specific event title to the form data
-    formData.append("Event", eventTitle);
+    const data = Object.fromEntries(formData.entries());
     
-    // Web3Forms Access Key
-    formData.append("access_key", "a9a1fa49-7ab7-4cee-832c-48f397bd2c5e");
-    formData.append("subject", `New Registration for Event: ${eventTitle}`);
+    // Set the eventTitle explicitly from props
+    data.eventTitle = eventTitle;
 
     try {
-      const endpoint = ["https://api", "web3forms", "com/submit"].join(".");
-      const response = await fetch(endpoint, {
+      const response = await fetch("/api/register", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (data.success) {
+      if (response.ok) {
         setStatus("success");
       } else {
         setStatus("error");
-        setErrorMessage(data.message || "Something went wrong.");
+        setErrorMessage(result.error || "Something went wrong.");
       }
     } catch (error) {
       setStatus("error");

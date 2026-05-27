@@ -3,9 +3,13 @@
 import { motion } from "framer-motion";
 import { siteConfig } from "@/data/site";
 import { MapPin, Phone, Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function ContactPage() {
+function ContactFormContent() {
+  const searchParams = useSearchParams();
+  const initialInterest = searchParams.get("interest") || "General Inquiry";
+  
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -14,25 +18,22 @@ export default function ContactPage() {
     setStatus("submitting");
 
     const formData = new FormData(e.currentTarget);
-    
-    // Web3Forms Access Key
-    formData.append("access_key", "a9a1fa49-7ab7-4cee-832c-48f397bd2c5e");
-    formData.append("subject", `New Contact Inquiry from OCHFA Website`);
+    const data = Object.fromEntries(formData.entries());
 
     try {
-      const endpoint = ["https://api", "web3forms", "com/submit"].join(".");
-      const response = await fetch(endpoint, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (data.success) {
+      if (response.ok) {
         setStatus("success");
       } else {
         setStatus("error");
-        setErrorMessage(data.message || "Something went wrong.");
+        setErrorMessage(result.error || "Something went wrong.");
       }
     } catch (error) {
       setStatus("error");
@@ -171,6 +172,21 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
+                    <label htmlFor="interest" className="block text-sm font-medium text-slate-700 mb-2">Area of Interest</label>
+                    <select
+                      id="interest"
+                      name="interest"
+                      defaultValue={initialInterest}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all bg-white"
+                    >
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Volunteer">Volunteer</option>
+                      <option value="Partner">Partner</option>
+                      <option value="Sponsor">Sponsor</option>
+                      <option value="Donate">Donate</option>
+                    </select>
+                  </div>
+                  <div>
                     <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                     <textarea 
                       id="message" 
@@ -206,5 +222,17 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    }>
+      <ContactFormContent />
+    </Suspense>
   );
 }
