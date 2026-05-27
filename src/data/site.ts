@@ -18,8 +18,6 @@ export const siteConfig = {
     { title: "Home", href: "/" },
     { title: "About Us", href: "/about" },
     { title: "Programs", href: "/programs" },
-    { title: "Success Stories", href: "/success-stories" },
-    { title: "Partners", href: "/partners" },
     { title: "Get Involved", href: "/get-involved" },
     { title: "Events", href: "/events" },
     { title: "Gallery", href: "/gallery" },

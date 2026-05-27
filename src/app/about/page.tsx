@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Quote } from "lucide-react";
+import { partners } from "@/data/partners";
 
 export default function AboutPage() {
   return (
@@ -143,6 +144,98 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* Success Stories (Quotes Only) */}
+      <section className="py-20 bg-slate-50 border-t">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-4">Success Stories</h2>
+            <p className="text-lg text-muted-foreground">Real stories from our community.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Program Participant",
+                role: "English Literacy Program",
+                quote: "Before joining OCHFA’s English classes, I struggled to communicate confidently. Now I can speak with my children’s teachers, participate in community activities, and apply for jobs independently.",
+              },
+              {
+                name: "Employment Program Participant",
+                role: "Employment Readiness",
+                quote: "OCHFA helped me improve my resume and prepare for interviews. Within a few months, I found my first job in Calgary.",
+              },
+              {
+                name: "Newcomer Family Participant",
+                role: "Community Integration",
+                quote: "OCHFA made me feel welcomed and connected when I first arrived in Canada. I now feel part of a supportive community.",
+              }
+            ].map((story, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col relative"
+              >
+                <div className="absolute top-8 right-8 text-secondary/10">
+                  <Quote className="w-12 h-12" />
+                </div>
+                <div className="mb-6 relative z-10">
+                  <h3 className="font-bold text-slate-900">{story.name}</h3>
+                  <p className="text-sm font-medium text-primary">{story.role}</p>
+                </div>
+                <p className="text-slate-700 leading-relaxed italic relative z-10 flex-grow">
+                  "{story.quote}"
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partners & Funders */}
+      <section className="py-20 bg-white border-t">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-4">Our Partners & Funders</h2>
+            <p className="text-lg text-muted-foreground">
+              We are grateful for the support of our partners, funders, volunteers, and community organizations.
+            </p>
+          </div>
+          
+          <div className="space-y-16">
+            <div>
+              <h3 className="text-2xl font-bold font-heading text-center text-slate-900 mb-8">Government & Institutional Partners</h3>
+              <div className="flex flex-wrap justify-center items-center gap-12">
+                {partners.slice(0, 3).map((partner) => (
+                  <div key={partner.id} className="relative w-32 h-20 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold font-heading text-center text-slate-900 mb-8">Community Partners</h3>
+              <div className="flex flex-wrap justify-center items-center gap-12">
+                {partners.slice(3, 6).map((partner) => (
+                  <div key={partner.id} className="relative w-32 h-20 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="bg-primary/5 rounded-3xl p-10 text-center max-w-4xl mx-auto border border-primary/10">
+              <h3 className="text-2xl font-bold font-heading text-slate-900 mb-4">Community Supporters</h3>
+              <p className="text-slate-700 leading-relaxed">
+                Our work is also made possible by the generous contributions of dedicated volunteers, local business owners, individual donors, and community leaders. Together, we are building stronger, more inclusive communities across Alberta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
