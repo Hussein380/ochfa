@@ -43,7 +43,7 @@ export const programs = [
       "Build professional confidence",
       "Access community employment resources"
     ],
-    image: "/images/program-employment.png"
+    image: "/images/employment-readiness.jpg"
   },
   {
     id: "youth-education",
@@ -57,7 +57,7 @@ export const programs = [
       "Recreation and social programs",
       "Volunteer opportunities"
     ],
-    image: "/images/classroom-1.jpg"
+    image: "/images/youth-mentorship.jpg"
   },
   {
     id: "family-community",
@@ -71,7 +71,7 @@ export const programs = [
       "Information and referrals",
       "Mental health and social support resources"
     ],
-    image: "/images/program-family.png"
+    image: "/images/women-family.jpg"
   },
   {
     id: "seniors-support",
@@ -85,6 +85,6 @@ export const programs = [
       "Language support",
       "Health information sessions"
     ],
-    image: "/images/classroom-2.jpg"
+    image: "/images/seniors-support.jpg"
   }
 ];
