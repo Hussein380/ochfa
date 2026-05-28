@@ -58,9 +58,27 @@ export const albumType = defineType({
       description: 'Drag and drop multiple video files here.',
       of: [
         {
+          name: 'videoFile',
+          title: 'Video File',
           type: 'file',
           options: {
             accept: 'video/*',
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: 'documents',
+      title: 'Bulk Document Upload (PDFs)',
+      type: 'array',
+      description: 'Drag and drop PDF files here.',
+      of: [
+        {
+          name: 'documentFile',
+          title: 'PDF Document',
+          type: 'file',
+          options: {
+            accept: 'application/pdf',
           },
         },
       ],

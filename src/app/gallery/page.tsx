@@ -11,7 +11,8 @@ export default async function GalleryPage() {
     date,
     coverImage,
     images,
-    "videoUrls": videos[].asset->url
+    "videoUrls": videos[].asset->url,
+    "documentUrls": documents[].asset->url
   }`);
   return <GalleryClient initialAlbums={albums} />;
 }

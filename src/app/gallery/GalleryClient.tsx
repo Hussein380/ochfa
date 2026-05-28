@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { urlForImage } from "@/sanity/lib/image";
-import { X, Calendar } from "lucide-react";
+import { X, Calendar, FileText } from "lucide-react";
 
 interface Album {
   _id: string;
@@ -14,6 +14,7 @@ interface Album {
   coverImage: any;
   images?: any[];
   videoUrls?: string[];
+  documentUrls?: string[];
 }
 
 function LazyVideo({ src }: { src: string }) {
@@ -231,6 +232,21 @@ export function GalleryClient({ initialAlbums }: { initialAlbums: Album[] }) {
                       <div key={`vid-${idx}`} className="relative break-inside-avoid rounded-xl overflow-hidden bg-slate-800 aspect-video">
                         <LazyVideo src={url} />
                       </div>
+                    ))}
+                    
+                    {/* Render Documents (PDFs) */}
+                    {selectedAlbum.documentUrls?.map((url, idx) => (
+                      <a 
+                        href={url} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        key={`doc-${idx}`} 
+                        className="relative break-inside-avoid rounded-xl bg-slate-800 p-8 flex flex-col items-center justify-center text-center hover:bg-slate-700 transition-colors border border-slate-700 hover:border-primary"
+                      >
+                        <FileText className="w-16 h-16 text-primary mb-4" />
+                        <span className="text-white font-medium text-lg">View Document</span>
+                        <span className="text-slate-400 text-sm mt-2">Click to open PDF</span>
+                      </a>
                     ))}
                   </div>
                 )}
