@@ -2,10 +2,32 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { programs } from "@/data/programs";
 import { siteConfig } from "@/data/site";
 import { ArrowRight, Heart, Users, Globe2 } from "lucide-react";
+
+function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration: 2.5,
+        ease: "easeOut",
+        onUpdate(v) {
+          setDisplayValue(Math.round(v));
+        },
+      });
+      return controls.stop;
+    }
+  }, [isInView, value]);
+
+  return <span ref={ref}>{displayValue}{suffix}</span>;
+}
 
 export default function Home() {
   return (
@@ -67,12 +89,12 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
             {[
-              { icon: "👥", number: "250+", text: "Newcomers supported annually" },
-              { icon: "📚", number: "40%", text: "Improvement in English literacy" },
-              { icon: "🤝", number: "15+", text: "Community partnerships" },
-              { icon: "💼", number: "40+", text: "Employment readiness workshops" },
-              { icon: "🧑‍🤝‍🧑", number: "1000+", text: "Volunteer support hours" },
-              { icon: "🏠", number: "80+", text: "Families connected to resources" },
+              { icon: "👥", value: 250, suffix: "+", text: "Newcomers supported annually" },
+              { icon: "📚", value: 40, suffix: "%", text: "Improvement in English literacy" },
+              { icon: "🤝", value: 15, suffix: "+", text: "Community partnerships" },
+              { icon: "💼", value: 40, suffix: "+", text: "Employment readiness workshops" },
+              { icon: "🧑‍🤝‍🧑", value: 1000, suffix: "+", text: "Volunteer support hours" },
+              { icon: "🏠", value: 80, suffix: "+", text: "Families connected to resources" },
             ].map((stat, i) => (
               <motion.div 
                 key={i}
@@ -83,7 +105,9 @@ export default function Home() {
                 className="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 shadow-sm"
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
-                <div className="text-3xl font-extrabold text-primary mb-2">{stat.number}</div>
+                <div className="text-3xl font-extrabold text-primary mb-2">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </div>
                 <div className="text-sm font-medium text-slate-600">{stat.text}</div>
               </motion.div>
             ))}
