@@ -141,7 +141,7 @@ export function GalleryClient({ initialAlbums }: { initialAlbums: Album[] }) {
                   >
                     <div className="relative w-full aspect-[4/3]">
                       <Image 
-                        src={album.coverImage ? urlForImage(album.coverImage)?.url() : "/images/placeholder.jpg"} 
+                        src={album.coverImage?.asset ? urlForImage(album.coverImage)?.url() : "/images/placeholder.jpg"} 
                         alt={album.title} 
                         fill 
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -213,7 +213,7 @@ export function GalleryClient({ initialAlbums }: { initialAlbums: Album[] }) {
                 ) : (
                   <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
                     {/* Render Images */}
-                    {selectedAlbum.images?.map((img, idx) => (
+                    {selectedAlbum.images?.filter((img) => img.asset).map((img, idx) => (
                       <div key={`img-${idx}`} className="relative break-inside-avoid rounded-xl overflow-hidden bg-slate-800 group">
                         <Image
                           src={urlForImage(img)?.url() || ""}
