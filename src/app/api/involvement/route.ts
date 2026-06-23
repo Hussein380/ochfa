@@ -32,7 +32,7 @@ export async function POST(request: Request) {
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
             <div style="background-color: #0f172a; padding: 24px; text-align: center;">
-              <img src="https://www.ochfa.ca/images/logoochfa.jpg" alt="OCHFA Logo" style="height: 60px; border-radius: 8px; margin-bottom: 16px;" />
+              <img src="https://www.ochfa.ca/images/ochfalogo.jpeg" alt="OCHFA Logo" style="height: 60px; border-radius: 8px; margin-bottom: 16px;" />
               <h1 style="color: white; margin: 0; font-size: 24px;">New ${type} Application</h1>
             </div>
             <div style="padding: 32px; background-color: #ffffff;">
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
             <div style="background-color: #ffffff; padding: 32px; text-align: center; border-bottom: 4px solid #0ea5e9;">
-              <img src="https://www.ochfa.ca/images/logoochfa.jpg" alt="OCHFA Logo" style="height: 80px; border-radius: 8px; margin-bottom: 24px;" />
+              <img src="https://www.ochfa.ca/images/ochfalogo.jpeg" alt="OCHFA Logo" style="height: 80px; border-radius: 8px; margin-bottom: 24px;" />
               <h1 style="color: #0f172a; margin: 0 0 16px 0; font-size: 28px;">Thank You, ${name}!</h1>
               <p style="color: #475569; font-size: 16px; line-height: 1.6; margin: 0;">
                 We have received your <strong>${type}</strong> application. 

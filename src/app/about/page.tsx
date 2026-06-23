@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2, Quote } from "lucide-react";
+import { CheckCircle2, Quote, Shield, Building2, Mail, Globe, MapPin } from "lucide-react";
 import { partners } from "@/data/partners";
+import { siteConfig } from "@/data/site";
 
 export default function AboutPage() {
   return (
@@ -190,6 +191,94 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Organization Details */}
+      <section className="py-20 bg-white border-t">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-4">Organization Details</h2>
+            <p className="text-lg text-muted-foreground">
+              OCHFA is a registered nonprofit organization in Alberta, Canada.
+            </p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 md:p-12 border border-primary/10 shadow-sm">
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <div className="p-3 bg-primary/10 rounded-xl">
+                  <Shield className="h-8 w-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900">Registered Nonprofit</h3>
+                  <p className="text-sm text-muted-foreground">Province of Alberta, Canada</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Building2 className="h-5 w-5 text-secondary" />
+                    <h4 className="font-semibold text-slate-900">Legal Name</h4>
+                  </div>
+                  <p className="text-slate-700 font-medium">{siteConfig.legalName}</p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Shield className="h-5 w-5 text-secondary" />
+                    <h4 className="font-semibold text-slate-900">Business Number (BN)</h4>
+                  </div>
+                  <p className="text-slate-700 font-medium text-lg">{siteConfig.registration.businessNumber}</p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Building2 className="h-5 w-5 text-secondary" />
+                    <h4 className="font-semibold text-slate-900">Corporate Access Number</h4>
+                  </div>
+                  <p className="text-slate-700 font-medium text-lg">{siteConfig.registration.corporateAccessNumber}</p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <MapPin className="h-5 w-5 text-secondary" />
+                    <h4 className="font-semibold text-slate-900">Address</h4>
+                  </div>
+                  <p className="text-slate-700">{siteConfig.contact.address}</p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Mail className="h-5 w-5 text-secondary" />
+                    <h4 className="font-semibold text-slate-900">Email</h4>
+                  </div>
+                  <a href={`mailto:${siteConfig.contact.email}`} className="text-primary hover:text-primary/80 font-medium">{siteConfig.contact.email}</a>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Globe className="h-5 w-5 text-secondary" />
+                    <h4 className="font-semibold text-slate-900">Website</h4>
+                  </div>
+                  <a href="https://www.ochfa.ca" className="text-primary hover:text-primary/80 font-medium">{siteConfig.contact.website}</a>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-slate-200 text-center">
+                <p className="text-sm text-slate-600">
+                  OCHFA is a registered nonprofit organization operating under the laws of the Province of Alberta, Canada.
+                  Our domain <strong>ochfa.ca</strong> is the official website of One Community Home &amp; Family Association.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

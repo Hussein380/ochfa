@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { FloatingContact } from "@/components/ui/FloatingContact";
+import { LayoutShell } from "@/components/layout/LayoutShell";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
   title: "OCHFA | One Community Home & Family Association",
-  description: "OCHFA provides newcomer support, English literacy programs, employment assistance, and community integration services for immigrant and refugee families in Calgary and Alberta.",
-  keywords: ["newcomer support Calgary", "English literacy Calgary", "immigrant job support Alberta", "refugee families Calgary", "OCHFA", "community integration Alberta"],
+  description: "OCHFA (Business Number: 702116732) is a registered nonprofit organization in Calgary, Alberta, providing newcomer support, English literacy programs, employment assistance, and community integration services for immigrant and refugee families.",
+  keywords: ["newcomer support Calgary", "English literacy Calgary", "immigrant job support Alberta", "refugee families Calgary", "OCHFA", "community integration Alberta", "One Community Home Family Association", "nonprofit Calgary", "702116732"],
 };
 
 export default function RootLayout({
@@ -32,13 +30,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} font-sans antialiased flex flex-col min-h-screen overflow-x-hidden`}
       >
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <FloatingContact />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );
 }
+

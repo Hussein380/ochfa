@@ -11,7 +11,7 @@ export function Footer() {
           <div className="md:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-3">
               <Image 
-                src="/images/logoochfa.jpg" 
+                src="/images/ochfalogo.jpeg" 
                 alt="OCHFA Logo" 
                 width={50} 
                 height={50}
@@ -79,8 +79,33 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="mt-12 border-t border-slate-200 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} {siteConfig.name}. All Rights Reserved.</p>
+        {/* Registered Nonprofit Details */}
+        <div className="mt-12 border-t border-slate-200 pt-8">
+          <div className="bg-primary/5 rounded-2xl p-6 border border-primary/10 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              <h3 className="font-semibold text-primary text-sm uppercase tracking-wide">Registered Nonprofit Organization</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-sm">
+              <div>
+                <p className="text-slate-500 text-xs mb-1">Legal Name</p>
+                <p className="font-semibold text-slate-800">{siteConfig.legalName}</p>
+              </div>
+              <div>
+                <p className="text-slate-500 text-xs mb-1">Business Number (BN)</p>
+                <p className="font-semibold text-slate-800">{siteConfig.registration.businessNumber}</p>
+              </div>
+              <div>
+                <p className="text-slate-500 text-xs mb-1">Corporate Access Number</p>
+                <p className="font-semibold text-slate-800">{siteConfig.registration.corporateAccessNumber}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 border-t border-slate-200 pt-8 text-center text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} {siteConfig.fullName}. All Rights Reserved.</p>
+          <p className="mt-1 text-xs">Business Number: {siteConfig.registration.businessNumber} | Calgary, Alberta, Canada</p>
         </div>
       </div>
     </footer>

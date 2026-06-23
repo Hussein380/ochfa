@@ -4,8 +4,16 @@ import { Mail } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export function FloatingContact() {
+  const pathname = usePathname();
+  
+  // Hide floating buttons in Sanity Studio to avoid blocking Studio UI
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
+
   // Format phone number for WhatsApp (remove dashes, add country code 1 for Canada)
   const waNumber = "1" + siteConfig.contact.whatsapp.replace(/\D/g, "");
   
@@ -40,3 +48,4 @@ export function FloatingContact() {
     </div>
   );
 }
+

@@ -14,7 +14,7 @@ export function Navbar() {
       <div className="container flex h-20 items-center justify-between mx-auto px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-3">
           <Image 
-            src="/images/logoochfa.jpg" 
+            src="/images/ochfalogo.jpeg" 
             alt="OCHFA Logo" 
             width={60} 
             height={60}

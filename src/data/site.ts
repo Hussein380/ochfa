@@ -1,12 +1,18 @@
 export const siteConfig = {
   name: "OCHFA",
   fullName: "One Community Home & Family Association",
+  legalName: "One Community Home & Family Association",
   description: "Supporting Newcomers. Building Stronger Communities. OCHFA is a Calgary-based nonprofit organization dedicated to supporting newcomers, families, youth, and diverse communities.",
+  registration: {
+    businessNumber: "702116732",
+    corporateAccessNumber: "5023003170",
+  },
   contact: {
     address: "1502 12 Ave SW, Calgary, AB T3C 0P9",
     phone: "(403) 971-9694",
     whatsapp: "403-680-7204",
     email: "info@ochfa.ca",
+    alternativeEmail: "Royalvillageline@gmail.com",
     website: "www.ochfa.ca"
   },
   socials: {

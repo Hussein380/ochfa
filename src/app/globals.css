@@ -118,7 +118,7 @@
 }
 
 @layer base {
-  * {
+  *:not([data-sanity] *) {
     @apply border-border outline-ring/50;
   }
   body {
