@@ -145,6 +145,7 @@ export function GalleryClient({ initialAlbums }: { initialAlbums: Album[] }) {
                         src={album.coverImage?.asset ? urlForImage(album.coverImage)?.url() : "/images/placeholder.jpg"} 
                         alt={album.title} 
                         fill 
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />

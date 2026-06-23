@@ -71,6 +71,7 @@ export default function AboutPage() {
                 src="/images/classroom-1.jpg" 
                 alt="Community members" 
                 fill 
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>
@@ -298,7 +299,7 @@ export default function AboutPage() {
               <div className="flex flex-wrap justify-center items-center gap-12">
                 {partners.slice(0, 3).map((partner) => (
                   <div key={partner.id} className="relative w-32 h-20 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
-                    <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
+                    <Image src={partner.logo} alt={partner.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain" />
                   </div>
                 ))}
               </div>
@@ -309,7 +310,7 @@ export default function AboutPage() {
               <div className="flex flex-wrap justify-center items-center gap-12">
                 {partners.slice(3, 6).map((partner) => (
                   <div key={partner.id} className="relative w-32 h-20 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
-                    <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
+                    <Image src={partner.logo} alt={partner.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain" />
                   </div>
                 ))}
               </div>

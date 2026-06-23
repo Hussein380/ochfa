@@ -44,6 +44,7 @@ export default function ProgramsPage() {
                     src={program.image} 
                     alt={program.title} 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>

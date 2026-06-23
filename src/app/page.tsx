@@ -39,6 +39,7 @@ export default function Home() {
             src="/images/hero-bg.png" 
             alt="Community gathering" 
             fill 
+            sizes="100vw"
             className="object-cover opacity-100"
             priority
           />
@@ -197,6 +198,7 @@ export default function Home() {
                       src={program.image} 
                       alt={program.title} 
                       fill 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
