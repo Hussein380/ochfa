@@ -142,7 +142,7 @@ export function GalleryClient({ initialAlbums }: { initialAlbums: Album[] }) {
                   >
                     <div className="relative w-full aspect-[4/3]">
                       <Image 
-                        src={album.coverImage?.asset ? urlForImage(album.coverImage)?.url() : "/images/placeholder.jpg"} 
+                        src={album.coverImage?.asset ? urlForImage(album.coverImage)?.url() : "/images/ochfalogo.jpeg"}
                         alt={album.title} 
                         fill 
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

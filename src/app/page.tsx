@@ -11,10 +11,15 @@ import { ArrowRight, Heart, Users, Globe2 } from "lucide-react";
 function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [displayValue, setDisplayValue] = useState(0);
+  // Initialize with the target value so SSR and crawlers see the actual number, not 0
+  const [displayValue, setDisplayValue] = useState(value);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+      // Quickly reset to 0 before animating up
+      setDisplayValue(0);
       const controls = animate(0, value, {
         duration: 2.5,
         ease: "easeOut",
@@ -24,7 +29,7 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
       });
       return controls.stop;
     }
-  }, [isInView, value]);
+  }, [isInView, value, hasAnimated]);
 
   return <span ref={ref}>{displayValue}{suffix}</span>;
 }

@@ -43,11 +43,6 @@ export function Footer() {
               <li>{siteConfig.contact.phone}</li>
               <li>{siteConfig.contact.email}</li>
             </ul>
-            <div className="flex space-x-4 mt-4 text-sm font-medium">
-              <a href={siteConfig.socials.facebook} className="text-primary hover:text-secondary" target="_blank" rel="noreferrer">Facebook</a>
-              <a href={siteConfig.socials.instagram} className="text-primary hover:text-secondary" target="_blank" rel="noreferrer">Instagram</a>
-              <a href={siteConfig.socials.linkedin} className="text-primary hover:text-secondary" target="_blank" rel="noreferrer">LinkedIn</a>
-            </div>
           </div>
         </div>
 
@@ -104,9 +99,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-200 pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-8 border-t border-slate-200 pt-8 text-center text-sm text-muted-foreground flex flex-col items-center">
           <p>© {new Date().getFullYear()} {siteConfig.fullName}. All Rights Reserved.</p>
-          <p className="mt-1 text-xs">Business Number: {siteConfig.registration.businessNumber} | Calgary, Alberta, Canada</p>
+          <div className="mt-2 flex gap-4 text-xs">
+            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+          </div>
+          <p className="mt-2 text-xs">Business Number: {siteConfig.registration.businessNumber} | Calgary, Alberta, Canada</p>
         </div>
       </div>
     </footer>

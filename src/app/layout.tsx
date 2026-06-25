@@ -7,9 +7,32 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.ochfa.ca'),
   title: "OCHFA | One Community Home & Family Association",
   description: "OCHFA (Business Number: 702116732) is a registered nonprofit organization in Calgary, Alberta, providing newcomer support, English literacy programs, employment assistance, and community integration services for immigrant and refugee families.",
   keywords: ["newcomer support Calgary", "English literacy Calgary", "immigrant job support Alberta", "refugee families Calgary", "OCHFA", "community integration Alberta", "One Community Home Family Association", "nonprofit Calgary", "702116732"],
+  openGraph: {
+    title: "OCHFA | One Community Home & Family Association",
+    description: "Supporting newcomers, immigrants, refugees, and families in Calgary, Alberta with English literacy, employment assistance, and community integration.",
+    url: 'https://www.ochfa.ca',
+    siteName: 'OCHFA',
+    images: [
+      {
+        url: '/images/hero-bg.png',
+        width: 1200,
+        height: 630,
+        alt: 'OCHFA Community Gathering',
+      },
+    ],
+    locale: 'en_CA',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "OCHFA | One Community Home & Family Association",
+    description: "Supporting newcomers, immigrants, refugees, and families in Calgary, Alberta.",
+    images: ['/images/hero-bg.png'],
+  },
 };
 
 export default function RootLayout({

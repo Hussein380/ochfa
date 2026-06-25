@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Disallow: /studio
+Disallow: /studio/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.ochfa.ca/sitemap.xml
