@@ -2,37 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import { motion, useInView, animate } from "framer-motion";
+import { motion } from "framer-motion";
 import { programs } from "@/data/programs";
 import { siteConfig } from "@/data/site";
 import { ArrowRight, Heart, Users, Globe2 } from "lucide-react";
-
-function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  // Initialize with the target value so SSR and crawlers see the actual number, not 0
-  const [displayValue, setDisplayValue] = useState(value);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
-      // Quickly reset to 0 before animating up
-      setDisplayValue(0);
-      const controls = animate(0, value, {
-        duration: 2.5,
-        ease: "easeOut",
-        onUpdate(v) {
-          setDisplayValue(Math.round(v));
-        },
-      });
-      return controls.stop;
-    }
-  }, [isInView, value, hasAnimated]);
-
-  return <span ref={ref}>{displayValue}{suffix}</span>;
-}
 
 export default function Home() {
   return (
@@ -112,7 +85,7 @@ export default function Home() {
               >
                 <div className="text-4xl mb-3">{stat.icon}</div>
                 <div className="text-3xl font-extrabold text-primary mb-2">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  <span>{stat.value}{stat.suffix}</span>
                 </div>
                 <div className="text-sm font-medium text-slate-600">{stat.text}</div>
               </motion.div>

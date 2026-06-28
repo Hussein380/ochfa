@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // @ts-expect-error - Next.js internal type missing in some versions
+  allowedDevOrigins: ['169.254.1.4'],
   images: {
     remotePatterns: [
       {
