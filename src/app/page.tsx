@@ -68,12 +68,12 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
             {[
-              { icon: "👥", value: 250, suffix: "+", text: "Newcomers supported annually" },
-              { icon: "📚", value: 40, suffix: "%", text: "Improvement in English literacy" },
-              { icon: "🤝", value: 15, suffix: "+", text: "Community partnerships" },
-              { icon: "💼", value: 40, suffix: "+", text: "Employment readiness workshops" },
-              { icon: "🧑‍🤝‍🧑", value: 1000, suffix: "+", text: "Volunteer support hours" },
-              { icon: "🏠", value: 80, suffix: "+", text: "Families connected to resources" },
+              { value: 250, suffix: "+", text: "Newcomers supported annually" },
+              { value: 40, suffix: "%", text: "Improvement in English literacy" },
+              { value: 15, suffix: "+", text: "Community partnerships" },
+              { value: 40, suffix: "+", text: "Employment readiness workshops" },
+              { value: 1000, suffix: "+", text: "Volunteer support hours" },
+              { value: 80, suffix: "+", text: "Families connected to resources" },
             ].map((stat, i) => (
               <motion.div 
                 key={i}
@@ -81,13 +81,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 shadow-sm"
+                className="bg-white rounded-2xl p-8 text-center border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
               >
-                <div className="text-4xl mb-3">{stat.icon}</div>
-                <div className="text-3xl font-extrabold text-primary mb-2">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight group-hover:text-primary transition-colors duration-300">
                   <span>{stat.value}{stat.suffix}</span>
                 </div>
-                <div className="text-sm font-medium text-slate-600">{stat.text}</div>
+                <div className="h-1 w-12 bg-slate-100 mx-auto mb-5 group-hover:bg-secondary/40 transition-colors duration-300 rounded-full"></div>
+                <div className="text-base font-medium text-slate-600 leading-relaxed">
+                  {stat.text}
+                </div>
               </motion.div>
             ))}
           </div>
